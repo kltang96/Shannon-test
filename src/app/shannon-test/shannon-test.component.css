@@ -30,8 +30,25 @@
   letter-spacing: 3px;
 }
 
+.div-btn {
+  width: 90px;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: midnightBlue;
+  color: white;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+.div-btn:hover {
+  background-color: mediumBlue;
+}
+.div-btn:active {
+  background-color: blue;
+}
+
 .version {
   float: right;
-  font-size: 0.6em;
+  font-size: 0.8em;
   color: grey;
 }

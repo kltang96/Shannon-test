@@ -1,3 +1,4 @@
+<!-- CANT HAVE ANY FOCUSABLE ELEMENTS IN THIS DIV -->
 <div tabindex="0" (focus)="focused=true" class="div-container">
 
   <div *ngIf="!focused" class="overlay">Click here to begin</div>
@@ -13,10 +14,10 @@
   <p>Pressed keys: <span class="sentence">{{displayCurrentPressedKeys()}}</span></p>
   <p>Calculated entropy per letter: {{calculateEntropy()}}</p>
 
-  <button (click)="reset()">Reset</button>
+  <div (click)="reset()" class="div-btn">Reset</div>
 
   <div>
-    <span class="version"><em>v1.0</em></span>
+    <span class="version"><em>v1.1</em></span>
   </div>
 
 </div>
