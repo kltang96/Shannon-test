@@ -1,4 +1,4 @@
-<div tabindex="0" (focus)="focused=true"class="div-container">
+<div tabindex="0" (focus)="focused=true" class="div-container">
 
   <div *ngIf="!focused" class="overlay">Click here to begin</div>
   <!-- <p class="sentence">{{sentence}}</p> -->
@@ -14,5 +14,9 @@
   <p>Calculated entropy per letter: {{calculateEntropy()}}</p>
 
   <button (click)="reset()">Reset</button>
+
+  <div>
+    <span class="version"><em>v1.0</em></span>
+  </div>
 
 </div>
