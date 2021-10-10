@@ -1,3 +1,18 @@
-<div>
-  <p>{{sentence}}</p>
+<div tabindex="0" (focus)="focused=true"class="div-container">
+
+  <div *ngIf="!focused" class="overlay">Click here to begin</div>
+  <!-- <p class="sentence">{{sentence}}</p> -->
+
+  <p class="sentence">
+    <span *ngFor="let letter of sentence.split(''); let i = index">
+      <span *ngIf="i < currentIndex">{{letter}}<wbr></span>
+      <span *ngIf="i >= currentIndex">_<wbr></span>
+    </span>
+  </p>
+
+  <p>Pressed keys: <span class="sentence">{{displayCurrentPressedKeys()}}</span></p>
+  <p>Calculated entropy per letter: {{calculateEntropy()}}</p>
+
+  <button (click)="reset()">Reset</button>
+
 </div>

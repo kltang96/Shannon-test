@@ -49,7 +49,7 @@ export const SENTENCES = [
   "He felt that dining on the bridge brought romance to this relationship",
   "The sign said there was road work ahead so he decided to slow down",
   "Who could be calling on the phone this late at night",
-  "Her brother broke his arm playing hockey",
+  "Her brother broke his arm while playing hockey",
   "He made a list of all the places he wants to visit",
   "The bully at school was mean to everyone except me",
   "The earthquake was the biggest one that we had ever experienced",
