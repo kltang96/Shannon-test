@@ -30,20 +30,19 @@
   letter-spacing: 3px;
 }
 
-.div-btn {
-  width: 90px;
-  margin: 0 auto;
-  padding: 5px;
+.span-btn {
+  padding: 5px 15px;
+  margin: 5px;
   border-radius: 3px;
   background-color: midnightBlue;
   color: white;
   cursor: pointer;
   font-family: sans-serif;
 }
-.div-btn:hover {
+.span-btn:hover {
   background-color: mediumBlue;
 }
-.div-btn:active {
+.span-btn:active {
   background-color: blue;
 }
 

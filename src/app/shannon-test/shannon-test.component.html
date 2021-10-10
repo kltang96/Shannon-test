@@ -12,12 +12,16 @@
   </p>
 
   <p>Pressed keys: <span class="sentence">{{displayCurrentPressedKeys()}}</span></p>
-  <p>Calculated entropy per letter: {{calculateEntropy()}}</p>
+  <p>Calculated entropy per letter:
+    <span *ngIf="!calculateEntropy()">Not enough data</span>
+    <span *ngIf="calculateEntropy()">{{calculateEntropy()}}</span>
+  </p>
 
-  <div (click)="reset()" class="div-btn">Reset</div>
+  <span (click)="reset()" class="span-btn">Reset</span>
+  <span (click)="solve()" class="span-btn">Solve</span>
 
-  <div>
-    <span class="version"><em>v1.1</em></span>
+  <div style="margin-top:15px">
+    <span class="version"><em>v1.2</em></span>
   </div>
 
 </div>

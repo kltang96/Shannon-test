@@ -42,7 +42,6 @@ export class ShannonTestComponent implements OnInit {
 
   handleLetter(letter: string) {
     if(this.sentence[this.currentIndex] == letter) {
-      console.log("correct")
       this.tries.push(this.currentPressedKeys.length+1)
       this.currentPressedKeys = ""
       this.currentIndex++
@@ -63,15 +62,44 @@ export class ShannonTestComponent implements OnInit {
   }
 
   calculateEntropy() {
-    let bits = 0
+    if(this.tries.length < 5) {
+      return null
+    }
+
+    let numberOfTries = {}
 
     this.tries.forEach(
       num => {
-        bits += Math.log2(num * 2 - 1)
+        if(numberOfTries[""+num]) {
+          numberOfTries[""+num]++
+        }
+        else {
+          numberOfTries[""+num] = 1
+        }
       }
     )
 
-    let entropy = bits/this.tries.length
+    let entropy = 0
+
+    for(let num in numberOfTries) {
+      let p = numberOfTries[num] / this.tries.length
+      entropy += p * Math.log2(1/p)
+    }
+
+    return entropy.toFixed(3)
+  }
+
+  //this method is wrong, but more a more accurate approximation for low number of guesses
+  calculateEntropy2() {
+    let totalTries = 0
+
+    this.tries.forEach(
+      num => {
+        totalTries += num
+      }
+    )
+
+    let entropy = Math.log2(totalTries/this.tries.length * 2 - 1)
 
     return entropy.toFixed(3)
   }
@@ -80,6 +108,9 @@ export class ShannonTestComponent implements OnInit {
     return this.currentPressedKeys.replace(" ", "_")
   }
 
+  solve() {
+    this.currentIndex = this.sentence.length
+  }
   reset() {
     this.ngOnInit()
   }
