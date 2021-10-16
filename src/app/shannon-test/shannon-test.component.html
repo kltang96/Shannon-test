@@ -11,17 +11,28 @@
     </span>
   </p>
 
-  <p>Pressed keys: <span class="sentence">{{displayCurrentPressedKeys()}}</span></p>
+  <p>Possible keys:
+    <span *ngFor="let letter of ACCEPTABLE_KEYS.replace(' ', '_').split('')"
+      [ngClass]="currentPressedKeys.replace(' ', '_').includes(letter) ? 'pressed' : 'not-pressed'" class="sentence"><!--
+      -->{{letter}}<!--
+    --></span>
+  </p>
+
   <p>Calculated entropy per letter:
     <span *ngIf="!calculateEntropy()">Not enough data</span>
     <span *ngIf="calculateEntropy()">{{calculateEntropy()}}</span>
   </p>
+  <p>Estimate entropy per letter:
+    <span>{{calculateEntropy2()}}</span>
+  </p>
 
-  <span (click)="reset()" class="span-btn">Reset</span>
-  <span (click)="solve()" class="span-btn">Solve</span>
+  <div>
+    <span (click)="reset()" class="span-btn">Reset</span>
+    <span (click)="solve()" class="span-btn">Solve</span>
+  </div>
 
   <div style="margin-top:15px">
-    <span class="version"><em>v1.2</em></span>
+    <span class="version"><em>v1.3</em></span>
   </div>
 
 </div>

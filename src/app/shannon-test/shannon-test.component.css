@@ -2,7 +2,7 @@
   position: relative;
   padding: 15px;
   margin: 0 auto;
-  background-color: aquamarine;
+  background-color: powderBlue;
   max-width: 850px;
   min-width: 350px;
 }
@@ -28,6 +28,13 @@
   word-wrap: break-word;
   font-size: 1.5em;
   letter-spacing: 3px;
+}
+.pressed {
+  color: rosyBrown;
+}
+.not-pressed {
+
+  color: green;
 }
 
 .span-btn {

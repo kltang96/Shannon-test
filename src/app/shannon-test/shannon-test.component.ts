@@ -14,13 +14,15 @@ export class ShannonTestComponent implements OnInit {
   public currentPressedKeys = ""
   public tries: number[]
 
-  private readonly ACCEPTABLE_KEYS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+  public readonly ACCEPTABLE_KEYS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ "
 
   constructor() {
     document.onkeydown = function(event) {
       let letter = event.key.toUpperCase()
       if(this.focused && this.ACCEPTABLE_KEYS.includes(letter)) {
-        event.preventDefault()
+        if(letter == " ") {
+          event.preventDefault()
+        }
         this.handleLetter(letter)
       }
     }.bind(this)
@@ -102,10 +104,6 @@ export class ShannonTestComponent implements OnInit {
     let entropy = Math.log2(totalTries/this.tries.length * 2 - 1)
 
     return entropy.toFixed(3)
-  }
-
-  displayCurrentPressedKeys() {
-    return this.currentPressedKeys.replace(" ", "_")
   }
 
   solve() {
